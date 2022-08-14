@@ -4,3 +4,10 @@ __pycache__
 *.pytest_cache
 .gitattributes
 !*.zip
+*.zip
+im.db
+rt.movie_info.tsv
+rt.reviews.tsv
+tmdb.movies.csv
+bom.movie_gross.csv
+zippedData
