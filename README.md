@@ -1,310 +1,572 @@
-# Phase 1 Project Description
+# Microsoft Studio Project Overview
 
-You've made it all the way through the first phase of this course - take a minute to celebrate your awesomeness!
+# Final Project Submission
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project-v2-4/master/awesome.gif)
+Please fill out:
+* **Student name:** Shayan Abdul Karim Khan
+* **Student pace:** Self Paced
+* **Scheduled project review date/time:** 
+* **Instructor name:** Abhineet Kulkarni
+* **Blog post URL:** 
 
-Now you will put your new skills to use with a large end-of-Phase project!
+## Problem Overview
 
-In this project description, we will cover:
+### Venture Opportunity:
+A lot of companies are producing original video content generating huge revenues, including box office movies. In the post-pandemic world, people have filled theaters and cinema halls allowing top movies to rack up millions in box office revenues.
 
-* [***Project Overview:***](#project-overview) the project goal, audience, and dataset
-* [***Deliverables:***](#deliverables) the specific items you are required to produce for this project
-* [***Grading:***](#grading) how your project will be scored
-* [***Getting Started:***](#getting-started) guidance for how to begin your first project
+### Client Insight:
+Microsoft has decided to venture into the world of movie production with a new movie studio. In order to make the movie studio a success, Microsoft needs to understand what kind of movies to produce. 
 
-## Project Overview
+### Client Goals:
+This notebook focuses on three client goals:
+1. Positive viewer response
+2. Impactful market entry
+3. Profitable 
 
-For this project, you will use exploratory data analysis to generate insights for a business stakeholder.
+### Business Questions
+This notebook will focus on three business questions to help achieve the client's goals. There are **three** business questions that this notebook will recommend answers to:
 
-### Business Problem
+1. Which genres to focus on?
+    - The popular genres will identify what type of movie will receive positive viewer responses
+    
+*It is important to understand the customer base and how different factors influence their behavior. Any product should primmarily be focused on providing the customer with whata they need. This guarantees success in the long run and develops customer loyalty. Customer satisfaction is directly correlated with profits and better reviews which will allow long-term success.*
+<br>
 
-Microsoft sees all the big companies creating original video content and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
 
-### The Data
+2. Should the movie be launched internationally?
+    - The international launch of the movie will help the client in the future with regards to an impactful market entry. If the movie needs to be launched internationally, it will need to have a cast, crew, story, advertising and marketing plans made accordingly. Whereas a only a US specific production would require different plans.
+<br>
 
-In the folder `zippedData` are movie datasets from:
 
-* [Box Office Mojo](https://www.boxofficemojo.com/)
-* [IMDB](https://www.imdb.com/)
-* [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* [TheMovieDB](https://www.themoviedb.org/)
-* [The Numbers](https://www.the-numbers.com/)
+3. What should be the expected budget/initial investment?
+    - The financial aspects will help identify how successful the business side will be. It is important to remember that a movie can be very popular but if it's not adequately profitable, it will be difficult for the movie studio to continue operations.
+<br>
 
-Because it was collected from various locations, the different files have different formats. Some are compressed CSV (comma-separated values) or TSV (tab-separated values) files that can be opened using spreadsheet software or `pd.read_csv`, while the data from IMDB is located in a SQLite database.
 
-![movie data erd](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project-v2-4/master/movie_data_erd.jpeg)
+### Value Proposition:
+This notebook will look at multiple sources of data to understand what will allow Microsoft to generate the most promising content and set it up for long-term success. The strategy described below will be used to generate actionable insight to answer the **Business Questions** based on two main criterion:
+<br>
+1. *Movie Reviews*
+2. *Movie Profits*
 
-Note that the above diagram shows ONLY the IMDB data. You will need to look carefully at the features to figure out how the IMDB data relates to the other provided data files.
+## Strategy
+To answer the complex question of the secret ingredients of a successful movie, there are a myriad of aspects to consider. The different aspects analyzed in this notebook will be evaluated based on the two KPIs listed above; Profits and reviews. 
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind, we recommend you use only the following data files:
+Good **Movie Reviews** are important indicators of the quality of a movie nonetheless they can not solely justify an investment opportunity. Therefore **Movie Profits** will be used as an indicator of high potential investment opportunities. The two KPIs coupled together can give the client a more thorough lay of the land. 
 
-* `im.db.zip`
-  * Zipped SQLite database (you will need to unzip then query using SQLite)
-  * `movie_basics` and `movie_ratings` tables are most relevant
-* `bom.movie_gross.csv.gz`
-  * Compressed CSV file (you can open without expanding the file using `pd.read_csv`)
+These KPIs will be used to answer the three main business questions in the following manner:
 
-### Key Points
+1. Which genres to focus on?
+    - genre vs average reviews analysis
+    - genre vs profit analysis
+    - genre vs average reviews vs profit analysis
+<br>
 
-* **Your analysis should yield three concrete business recommendations.** The ultimate purpose of exploratory analysis is not just to learn about the data, but to help an organization perform better. Explicitly relate your findings to business needs by recommending actions that you think the business (Microsoft) should take.
 
-* **Communicating about your work well is extremely important.** Your ability to provide value to an organization - or to land a job there - is directly reliant on your ability to communicate with them about what you have done and why it is valuable. Create a storyline your audience (the head of Microsoft's new movie studio) can follow by walking them through the steps of your process, highlighting the most important points and skipping over the rest.
+2. Should the movie be launched internationally?
+    - genre vs domestic profit analysis
+    - genre vs foregin profit analysis
+<br>
 
-* **Use plenty of visualizations.** Visualizations are invaluable for exploring your data and making your findings accessible to a non-technical audience. Spotlight visuals in your presentation, but only ones that relate directly to your recommendations. Simple visuals are usually best (e.g. bar charts and line graphs), and don't forget to format them well (e.g. labels, titles).
 
-## Deliverables
+3. What should be the expected budget/initial investment?
+    - genres vs production budget vs domestic & foreign profits analysis
 
-There are three deliverables for this project:
+## Data Sources
 
-* A **non-technical presentation**
-* A **Jupyter Notebook**
-* A **GitHub repository**
+To solve the problem, 5 data sources have been gathered. These data sources will be investigated to identify which data will be helpful in the analysis. The data sources are listed below:
 
-### Non-Technical Presentation
+- **[Box Office Mojo](https://www.boxofficemojo.com/)**
 
-The non-technical presentation is a slide deck presenting your analysis to business stakeholders.
+- **[The Numbers](https://www.the-numbers.com/)**
 
-* ***Non-technical*** does not mean that you should avoid mentioning the technologies or techniques that you used, it means that you should explain any mentions of these technologies and avoid assuming that your audience is already familiar with them.
-* ***Business stakeholders*** means that the audience for your presentation is Microsoft, not the class or teacher. Do not assume that they are already familiar with the specific business problem, but also do not explain to them what Microsoft is.
+- **[Rotten Tomatoes](https://www.rottentomatoes.com/)**
 
-The presentation describes the project ***goals, data, methods, and results***. It must include at least ***three visualizations*** which correspond to ***three business recommendations***.
+- **[IMDB](https://www.imdb.com/)**
 
-We recommend that you follow this structure, although the slide titles should be specific to your project:
+- **[TheMovieDB](https://www.themoviedb.org/)**
 
-1. Beginning
-    * Overview
-    * Business Understanding
-2. Middle
-    * Data Understanding
-    * Data Analysis
-3. End
-    * Recommendations
-    * Next Steps
-    * Thank You
-       * This slide should include a prompt for questions as well as your contact information (name and LinkedIn profile)
+The content and relevance of the data available is dealt with in detail in the **Data Understanding** Section.
 
-You will give a live presentation of your slides and submit them in PDF format on Canvas. The slides should also be present in the GitHub repository you submit with a file name of `presentation.pdf`.
+## Data Understanding
 
-The graded elements of the presentation are:
+### Box Office Mojo Dataset
+The **Box Office Mojo** dataset is stored in the `zippedData` folder. 
 
-* Presentation Content
-* Slide Style
-* Presentation Delivery and Answers to Questions
+The file is called `bom.movie_gross.csv.gz`.
 
-See the [Grading](#grading) section for further explanation of these elements.
+There are **five** columns in this dataset:
 
-For further reading on creating professional presentations, check out:
+- `title` : This is the movie title. It is an important column because it shows which movie the record is for. This will be valuable in comparing/merging data to give more context to the analysis.
+<br>
 
-* [Presentation Content](https://github.com/learn-co-curriculum/dsc-project-presentation-content)
-* [Slide Style](https://github.com/learn-co-curriculum/dsc-project-slide-design)
+- `studio` : This gives an outlook on the competitors in the market. This won't be valuabale in answering any of the three business questions.
+<br>
 
-### Jupyter Notebook
+- `domestic_gross` : This data is particularly important because it provides the financial overview within the US market. Since there is no currency sign associated, we will assume `$` but more on that in the **Data Prepartion** section.
+<br>
 
-The Jupyter Notebook is a notebook that uses Python and Markdown to present your analysis to a data science audience.
+- `foreign_gross` : This is similar to `domestic gross` and equally valuable. It provides insights on foreign performance of a movie.
+<br>
 
-* ***Python and Markdown*** means that you need to construct an integrated `.ipynb` file with Markdown (headings, paragraphs, links, lists, etc.) and Python code to create a well-organized, skim-able document.
-  * The notebook kernel should be restarted and all cells run before submission, to ensure that all code is runnable in order.
-  * Markdown should be used to frame the project with a clear introduction and conclusion, as well as introducing each of the required elements.
-* ***Data science audience*** means that you can assume basic data science proficiency in the person reading your notebook. This differs from the non-technical presentation.
+- `year` : This is the year that the movie was released. It is important to keep the year in mind so that the analysis isn't skewed. We will later evaluate which timelines to focus on for the analysis.
 
-Along with the presentation, the notebook also describes the project ***goals, data, methods, and results***. It must include at least ***three visualizations*** which correspond to ***three business recommendations***.
+There are `3387` records in total in this dataset which is a good size for our analysis. 
 
-You will submit the notebook in PDF format on Canvas as well as in `.ipynb` format in your GitHub repository.
+**Summary:** 
 
-The graded elements for the Jupyter Notebook are:
+The **Box Office Mojo** data will be valuable to conduct financial analysis but we have another financial informatiion dataset that we'll look at next. We will compare these two datasets to understand what information to carry into our analysis from these.
 
-* Business Understanding
-* Data Understanding
-* Data Preparation
-* Data Analysis
-* Visualization
-* Code Quality
 
-See the [Grading](#grading) section for further explanation of these elements.
+### The Numbers Dataset
+This dataset is stored in the `zippedData` folder. 
 
-### GitHub Repository
+The file is called `tn.movie_budgets.csv.gz`.
 
-The GitHub repository is the cloud-hosted directory containing all of your project files as well as their version history.
+There are **six** columns in this dataset with a total of `5782` records with no missing values.
 
-This repository link will be the project link that you include on your resume, LinkedIn, etc. for prospective employers to view your work. Note that we typically recommend that 3 links are highlighted (out of 5 projects) so don't stress too much about getting this one to be perfect! There will also be time after graduation for cosmetic touch-ups.
+It is difficult to guage what the `id` column is doing in this dataset. We should be able to drop this column since it doesn't signify anything unique. This will be done in the **Data Preparation** section.
 
-A professional GitHub repository has:
+A brief overview of the columns of interest in the `tn_df` dataframe is as follows:
 
-1. `README.md`
-    * A file called `README.md` at the root of the repository directory, written in Markdown; this is what is rendered when someone visits the link to your repository in the browser
-    * This file contains these sections:
-       * Overview
-       * Business Understanding
-          * Include stakeholder and key business questions
-       * Data Understanding and Analysis
-          * Source of data
-          * Description of data
-          * Three visualizations (the same visualizations presented in the slides and notebook)
-       * Conclusion
-          * Summary of conclusions including three relevant findings
-2. Commit history
-   * Progression of updates throughout the project time period, not just immediately before the deadline
-   * Clear commit messages
-   * Commits from all team members (if a group project)
-3. Organization
-   * Clear folder structure
-   * Clear names of files and folders
-   * Easily-located notebook and presentation linked in the README
-4. Notebook(s)
-   * Clearly-indicated final notebook that runs without errors
-   * Exploratory/working notebooks (can contain errors, redundant code, etc.) from all team members (if a group project)
-5. `.gitignore`
-   * A file called `.gitignore` at the root of the repository directory instructs Git to ignore large, unnecessary, or private files
-     * Because it starts with a `.`, you will need to type `ls -a` in the terminal in order to see that it is there
-   * GitHub maintains a [Python .gitignore](https://github.com/github/gitignore/blob/master/Python.gitignore) that may be a useful starting point for your version of this file
-   * To tell Git to ignore more files, just add a new line to `.gitignore` for each new file name
-     * Consider adding `.DS_Store` if you are using a Mac computer, as well as project-specific file names
-     * If you are running into an error message because you forgot to add something to `.gitignore` and it is too large to be pushed to GitHub [this blog post](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a?sk=c3763d466c7f2528008c3777192dfb95)(friend link) should help you address this
 
-You wil submit a link to the GitHub repository on Canvas.
+- `release_date` : This is the release date of the movie and will be valuable in determining if we wwant to limit the timeline of the dataset we use.
+<br>
 
-See the [Grading](#grading) section for further explanation of how the GitHub repository will be graded.
+- `movie` : This is the movie name which shows which movie the record is for.
+<br>
 
-For further reading on creating professional notebooks and `README`s, check out [this reading](https://github.com/learn-co-curriculum/dsc-repo-readability-v2-2).
+- `production_budget` : This column is important in understanding the initial investments that have to be made by the client. This will also allow us to calculate the net profits.
+<br>
 
-## Grading
+- `domestic-gross` : Similar to `bom_df`, this column provides insight into the revenue generated in the US market by the movie.
+<br>
 
-***To pass this project, you must pass each project rubric objective.*** The project rubric objectives for Phase 1 are:
+- `worldwide-gross` : This is slightly different than the `foreign_gross` column of `bom_df`. It was found through exploration and comparison with the **Box Office Mojo** dataset that thiis column is the sum of domestic gross and foreign gross. 
 
-1. Attention to Detail
-2. Data Communication
-3. Authoring Jupyter Notebooks
-4. Data Manipulation and Analysis with `pandas`
+An important thing to note is that `tn_df` has `5782` records while `bom_df` has `3378`. 
 
-### Attention to Detail
+**Summary:** 
 
-If you have searched for a job, you have probably seen "attention to detail" appear on a job description. In a [survey of hiring managers](https://www.payscale.com/data-packages/job-skills), fully 56% of them said they felt that recent college grads lacked this skill. So, what does "attention to detail" mean, and how will you be graded on it at Flatiron School?
+`tn_df` has similar data bins (i.e. columns) as `bom_df` but more records. Considering that `tn_df` has more records and a complete dataset, therefore it would be better to use this dataset for analysis.
 
-Attention to detail means that you accomplish tasks thoroughly and accurately. You need to understand what is being asked of you, and double-check that your work fulfills all of the requirements. This will help make you a "no-brainer hire" because it helps employers feel confident that they will not have to double-check your work. For further reading, check out [this article](https://www.indeed.com/career-advice/career-development/attention-to-detail) from Indeed.
+`tn_df` will be the main dataset we will be using to conduct financial analysis.
 
-***Attention to detail will be graded based on the project checklist. In Phase 1, you need to complete 60% (6 out of 10) or more of the checklist elements in order to pass the Attention to Detail objective.*** The standard for passing the Attention to Detail objective will increase with each Phase, until you are required to complete all elements to pass Phase 5 (Capstone).
+### Rotten Tomatoes Dataset
+There are 2 datasets from Rotten Tomatoes that we are going to explore and understand their utility for our analysis.
 
-The [Phase 1 Project Checklist](https://docs.google.com/document/d/1PjJwdek9EeIy9tYdvlC4bvKvwYcI2xHO1wEMENfqo5E/edit?usp=sharing) is linked here as well as directly in Canvas. The elements highlighted in yellow are the elements you need to complete in order to pass this objective. We recommend that you make your own copy of this document, so that you can check off each element as you complete it. The checklist also contains more specific, detailed guidance about the deliverables described above.
+- `rt.movie_info.tsv`
+- `rt.reviews.tsv`
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+Both of these files are stored in the `zippedData` folder.
 
-#### Exceeds Objective
-70% or more of the project checklist items are complete
+The two datasets are related through the id column as shown below. Since there are multiple reviews for movies, we see a big discrepancy between the total number of records between the two datasets.
 
-#### Meets Objective (Passing Bar)
-60% of the project checklist items are complete
+`rtmov_df` has `1560` records
 
-#### Approaching Objective
-50% of the project checklist items are complete
+`rtrev_df` has `54432` records
 
-#### Does Not Meet Objective
-40% or fewer of the project checklist items are complete
+![image.png](attachment:image.png)
 
-### Data Communication
+Since there is no information on the movie name that these records are for, it becomes very difficult to join/compare this data with other datasets. 
 
-Communication is another key "soft skill". In [the same survey mentioned above](https://www.payscale.com/data-packages/job-skills), 46% of hiring managers said that recent college grads were missing this skill.
+Note that the `rating` columns in the two dataframes show different data. The one in `rtmov_df` is to signify what age group the movie was for (eg. R, PG13, etc) whereas the one in `rtrev_df` is the movie review on a scale of 0 to 5.
 
-Because "communication" can encompass such a wide range of contexts and skills, we will specifically focus our Phase 1 objective on Data Communication. We define Data Communication as:
+- `id` : This is the key column in both dataframes. We will be using this column to join the dataframes.
+<br>
 
-> Communicating basic data analysis results to diverse audiences via writing and live presentation
+- `rtmov_df` `rating` : This column contains information on the age group that the movie was released for. For example R-rated movies have age restrictions. This will be valuable in understanding the demographic of the users.
+<br>
 
-To further define some of these terms:
+- `rtmov_df` `genre` : This column provides an insight into what genre the movie was. Comparing this column with `rating` and `reviews` will showcase which genres are highly competetive and which ones are low performingor have high standards.
+<br>
 
-* By "basic data analysis" we mean that you are filtering, sorting, grouping, and/or aggregating the data in order to answer business questions. This project does not involve inferential statistics or machine learning, although descriptive statistics such as measures of central tendency are encouraged.
-* By "results" we mean your ***three visualizations and recommendations***.
-* By "diverse audiences" we mean that your presentation and notebook are appropriately addressing a business and data science audience, respectively.
+- `rtrev_df` `rating`: This column stores the ratings reviewers gave the movie out of 5. This data will be used as the basepoint to compare what type of movies are successful. This column will be renamed to avoid confusion with the `rtmov rating` data.
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+An important thing to note is that the **Rotten Romatoes** data only has `1560` movie records. This is much smaller than the other two data sources we have looked at. 
 
-#### Exceeds Objective
-Creates and describes appropriate visualizations for given business questions, where each visualization fulfills all elements of the checklist
+Therefore, if we find a dataset with similar information but more records, we will ignore this dataset. 
 
-> This "checklist" refers to the Data Visualization checklist within the larger Phase 1 Project Checklist
+**Summary:** 
 
-#### Meets Objective (Passing Bar)
-Creates and describes appropriate visualizations for given business questions
+While this data is valuable for analysing genres vs reviews, we need to look at the other datasets with more records before deciding how critical the rotten tomatoes data will be.
 
-> This objective can be met even if all checklist elements are not fulfilled. For example, if there is some illegible text in one of your visualizations, you can still meet this objective
+### IMDB Database
 
-#### Approaching Objective
-Creates visualizations that are not related to the business questions, or uses an inappropriate type of visualization
+The **IMDB** Database is stored in the `zippedData` folder.
 
-> Even if you create very compelling visualizations, you cannot pass this objective if the visualizations are not related to the business questions
+The file is called `im.db`.
 
-> An example of an inappropriate type of visualization would be using a line graph to show the correlation between two independent variables, when a scatter plot would be more appropriate
+We have the following Entity Relationship Diagram (ERD) explaining the different tables in the database:
 
-#### Does Not Meet Objective
-Does not submit the required number of visualizations
+![movie_data_erd.jpeg](attachment:movie_data_erd.jpeg)
 
-### Authoring Jupyter Notebooks
+The `persons` table contains the records for the cast and crew of the movies which are not relevant to the business questions that this notebook explores. 
 
-According to [Kaggle's 2020 State of Data Science and Machine Learning Survey](https://www.kaggle.com/kaggle-survey-2020), 74.1% of data scientists use a Jupyter development environment, which is more than twice the percentage of the next-most-popular IDE, Visual Studio Code. Jupyter Notebooks allow for reproducible, skim-able code documents for a data science audience. Comfort and skill with authoring Jupyter Notebooks will prepare you for job interviews, take-home challenges, and on-the-job tasks as a data scientist.
+Nonetheless, this is something that should be investigated separately. Alongside this data, experts in the field of movie production should be consulted to understand which cast and crew would be ideal for the kind of movie that the client decides to pursue.
 
-The key feature that distinguishes *authoring Jupyter Notebooks* from simply *writing Python code* is the fact that Markdown cells are integrated into the notebook along with the Python cells in a notebook. You have seen examples of this throughout the curriculum, but now it's time for you to practice this yourself!
+Leveraging the **ERD** above, we can skip exploring `writers`, `directors`, `principals` and `known_for` tables because these are information about the cast and crew.
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+The `movie_basics` table give us the principal information about the movies that will be used for joining and relating with other tables. It will be important to use this table in analysis to relate reviews and profits to genres.
 
-#### Exceeds Objective
-Uses Markdown and code comments to create a well-organized, skim-able document that follows all best practices
+It has **six** columns, all with valuable information, with `146144` records which will greatly improve the analysis.
 
-> Refer to the [repository readability reading](https://github.com/learn-co-curriculum/dsc-repo-readability-v2-2) for more tips on best practices
+- `movie_id` : This is the primary key of the table. It can be seen in the ERD that it relates to the other tables based on this id.
+<br>
 
-#### Meets Objective (Passing Bar)
-Uses some Markdown to create an organized notebook, with an introduction at the top and a conclusion at the bottom
+- `primary_title` : This column represents the changed title for different markets. These can be translations if the movie is a foreign production. A lot of movies are released with different names in different regions. This might end up not being a useful column for analysis but further exploration will calrify that.
+<br>
 
-#### Approaching Objective
-Uses Markdown cells to organize, but either uses only headers and does not provide any explanations or justifications, or uses only plaintext without any headers to segment out sections of the notebook
+- `original_title` : This column is self-explanatory. It has the original title of the movie in the local language of the region it was prooduced in. This will be important to link to the other datasets and other tables within the database.
+<br>
 
-> Headers in Markdown are delineated with one or more `#`s at the start of the line. You should have a mixture of headers and plaintext (text where the line does not start with `#`)
+- `start_year` : This is the year that the movie was launched. This will be important to filter the records for the timeline being evaluated.
+<br>
 
-#### Does Not Meet Objective
-Does not submit a notebook, or does not use Markdown cells at all to organize the notebook
+- `runtime_minutes` : This column contains the data on the total length of the movie. This data does not contribute to the business questions being answered.
+<br>
 
-### Data Manipulation and Analysis with `pandas`
+- `genres` : This column contains the genres of the movie. This will be critical in our analysis to understand which genres should the client focus on.
 
-`pandas` is a very popular data manipulation library, with over 2 million downloads on Anaconda (`conda install pandas`) and over 19 million downloads on PyPI (`pip install pandas`) at the time of this writing. In our own internal data, we see that the overwhelming majority of Flatiron School DS grads use `pandas` on the job in some capacity.
+The `movie_ratings` table will be extremely valuable in analyzing genres vs reviews and generating recommendations for which type of movie should the client pursue.
 
-Unlike in base Python, where the Zen of Python says "There should be one-- and preferably only one --obvious way to do it", there is often more than one valid way to do something in `pandas`. However there are still more efficient and less efficient ways to use it. Specifically, the best `pandas` code is *performant* and *idiomatic*.
+This is the dataframe storing the average reviews for the movies and the corresponding total number of votes for each movie. 
 
-Performant `pandas` code utilizes methods and broadcasting rather than user-defined functions or `for` loops. For example, if you need to strip whitespace from a column containing string data, the best approach would be to use the [`pandas.Series.str.strip` method](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.strip.html) rather than writing your own function or writing a loop. Or if you want to multiply everything in a column by 100, the best approach would be to use broadcasting (e.g. `df["column_name"] * 100`) instead of a function or loop. You can still write your own functions if needed, but only after checking that there isn't a built-in way to do it.
+Nonetheless, it only has `73856` records compared to `movie_basics` `146144` records. Only movies that have reviews data will be used in the analysis.
 
-Idiomatic `pandas` code has variable names that are meaningful words or abbreviations in English, that are related to the purpose of the variables. You can still use `df` as the name of your DataFrame if there is only one main DataFrame you are working with, but as soon as you are merging multiple DataFrames or taking a subset of a DataFrame, you should use meaningful names. For example, `df2` would not be an idiomatic name, but `movies_and_reviews` could be.
+These reviews can be correlated with the genres of the movies from `movie_basics` using the `movie_id` column. This will give us a good comparison of genres vs reviews.
 
-We also recommend that you rename all DataFrame columns so that their meanings are more understandable, although it is fine to have acronyms. For example, `"col1"` would not be an idiomatic name, but `"USD"` could be.
+These can be further analysed with profits for every movie, resulting in a genres vs reviews vs profits comparison.
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+This dataframe has **three** columns:
 
-#### Exceeds Objective
-Uses `pandas` to prepare data and answer business questions in an idiomatic, performant way
+- `movie_id` : This is the key that is relating this table to the `movie_basics` table.
+<br>
 
-#### Meets Objective (Passing Bar)
-Successfully uses `pandas` to prepare data in order to answer business questions
+- `averagerating` : This is the average of all the ratings for a specific movie.
+<br>
 
-> This includes projects that _occasionally_ use base Python when `pandas` methods would be more appropriate (such as using `enumerate()` on a DataFrame), or occasionally performs operations that do not appear to have any relevance to the business questions
+- `numvotes` : This is the total number of reviews that a movie received. It will be important to set a baseline of minimum number of votes to use for filtering the data to avoid skewwing results.
 
-#### Approaching Objective
-Uses `pandas` to prepare data, but makes significant errors
 
-> Examples of significant errors include: the result presented does not actually answer the stated question, the code produces errors, the code _consistently_ uses base Python when `pandas` methods would be more appropriate, or the submitted notebook contains significant quantities of code that is unrelated to the presented analysis (such as copy/pasted code from the curriculum or StackOverflow)
+`movie_akas` is a relatively large dataframe with `331703` records. This is because the `title` column has separate names that movies had in different regions. 
 
-#### Does Not Meet Objective
-Unable to prepare data using `pandas`
+We will use the laanguage column to identify which movies were produced for most of the US population. 
 
-> This includes projects that successfully answer the business questions, but do not use `pandas` (e.g. use only base Python, or use some other tool like R, Tableau, or Excel)
+Using **English** as the baseline laanguage will allow the movie to have the greatest reach in doemstic and international markets.
 
-## Getting Started
+The are `44700` original titles in this dataset but almost all of them are missing region and lanaguage data.
 
-Please start by reviewing the contents of this project description. If you have any questions, please ask your instructor ASAP.
+This renders this table invaluable for our analysis since it doesn't have any extra information that will help answer the **Business Questions**
 
-Next, you will need to complete the [***Project Proposal***](#project_proposal) which must be reviewed by your instructor before you can continue with the project.
+That finishes the exploration of the `im.db` database.
 
-Then, you will need to create a GitHub repository. There are three options:
+**Summary:** 
 
-1. Look at the [Phase 1 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and follow the directions in the MVP branch.
-2. Fork the [Phase 1 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-1-project-v2-4), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
-3. Create a new repository from scratch by going to [github.com/new](https://github.com/new) and copying the data files from one of the above resources into your new repository. This approach will result in the most professional-looking portfolio repository, but can be more complicated to use. So if you are getting stuck with this option, try one of the above options instead.
+- `persons`, `principals`, `known_for`, `directors` and `writers` contain information on cast and crew. These tables will not be used in the analysis because they do not add value to answering the **Business Questions** laid out in the **Problem Overview** section.
+<br>
 
-## Summary
+- `movie_basics` is an important table wih the principal information about the movie. This table is linked to two other important tables and will be critical in the analysis.
+<br>
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+- `movie_ratings` stores the average ratings and number of votes for movies. This will serve as the main reference for analyses based on reviews.
+<br>
+
+- `movie_akas` contains movie names in different regions. Because of missing values, it doesn't provide us any valuable data to use in our analysis. This table will also be ignored. 
+
+### The MovieDB Dataset
+
+**The MovieDB** Dataset is stored in the **zippedData** folder.
+
+The file is called `tmdb.movies.csv`.
+
+There are **ten** columns and `26517` records in this dataset.
+
+- The `Unnamed` column is the index of the records therefore this column can be ignored.
+<br>
+
+- The `genre_ids` column can be ignored since we can grab the genres from other tables which would be more helpful
+<br>
+
+- The `id` column can be dropped because we can use `original_title` as the key to relate to the `im.db` database.
+<br>
+
+
+The columns that we will be carrying into analysis will be the following:
+
+- The `original_language` column can be used to determine which movies will have the greatest reach. Using **English** as a the baseline language, will allow the maximum domestic and international reach.
+<br>
+
+- `original-title` : This is the original title of the movie which we can use to correlate data in other dataframes.
+<br>
+
+- `popularity` : This will be an important data to look at alongside reviews to analyse the response to the movies. While the scale isn't known, we can manipulate the values to create a custom scale to better understand the values.
+<br>
+
+- The `release_date` column can be used to filter records for the timeline that will be used in analsis.
+<br>
+
+- `title` : This will be an important column to keep in case we need to link the `bommovies` dataset using the title column instead of `original_title`.
+<br>
+
+- `vote_average` : This gives us an extra benchmark to use for comparison of reviews to the `imm.db` database
+<br>
+
+- `vote_count` : The number of votes allows us to filter to ensure that wew are not skewing data because of very good or very bad reviews of a only a handful viewers.
+
+**Summmary:** 
+
+The `tmdb_db` dataset will be very useful for analyzing movie reviews vs proftis vs genres. We can directly link this dataset to the `im_db` tables using the `original_title` column.
+
+#### Review
+That was a lot of information. Lets take an overall look at the ERD of all of our datasets and talk about which ones we will be using in our analysis, and how we'll use them.
+In the diagram below, yellow is for the **IMDB** database. Everything else is labelled.
+
+![Complete%20ERD.png](attachment:Complete%20ERD.png)
+
+`im.db` database is the most valuable database which has all the info for the movies except for revenues.
+<br>
+
+- `persons`, `principals`, `known_for`, `directors`, `writers`, and `movie_akas` datasets will be ignored because they are not relevant to the **Business Questions** mentioned earlier.
+<br>
+
+- `movie_basics` will be the main dataset used for the principal information for the movies, i.e genre, title, etc.
+<br>
+
+- `movie_ratings` will be used for tallying up the reviews and correlating genre with review and financial performance.
+<br>
+
+`Box Office Mojo` and `The Numbers` datasets are next most valuable ones because they contain information on financial performance of the movies.
+
+- `Box Office Mojo` and `The Numbers` data contains the same financial information. 
+<br>
+
+- Since `The Numbers` dataset has more records, the `Box Office Mojo` dataset will be ignored. `The Number` dataset will be used to calculate the profits for financial analysis.
+<br>
+
+- The genre, reviews, and financial performance data will be joined with the imdb dataset. The joined dataset will be the main financial analysis daataframe that this notebook will use. 
+<br>
+
+- The timeline available in `The Numbers` dataset will be one of the limiting factors for analysis.
+
+`The MovieDB` datasets will serve as an additional resource to compare with `movie_ratings`. The dataset wwill be joined with the `im.db` database and the reviews will be averaged between the two.
+
+The `Rotten Tomatoes` datasets will be ignored because they don't provide any additional value for analysing customer reviews. `im.db` provides movie-specific data with more records.
+
+
+## Data Interpretation and Visualizations
+
+### Which genres bring in the highest ratings and profits?
+
+#### genre vs ratings analysis:
+
+image.png
+
+We can easilly decypher that the top 4 most popular genre combinations that are rated above average are (Recall that **NA** means that there wasn't a combination for thata column:
+
+1. `Drama`
+2. `Adventure, Animation, Comedy`
+3. `Comedy, Drame` tied with `Documentary`
+4. `Action, Adventure, Sci-fi`
+
+Nonetheless, purely good reviews can't be only reference of producing a successful movie. It needs to be looked at from the financial lens also. For this purpose, we will look at genre vs profits analysis next.
+
+### genre vs profits analysis
+
+image.png
+
+The figure above shows the Top 20 profitable genre combinations.
+
+The most common genre in the top 10 are 
+1. Adventure with 10 groupings
+2. Action with 7 groupings
+3. Fantasy with 6 groupings
+4. Family with 5 and Comedy with 5 groupings
+5. Animation with 4 and Sci-fi with 4 groupings
+6. Musical with 2 and Thriller with 2 groupings
+7. Drama, Mystery, Documentary, History with 1 groupings each
+
+We can see that `Adventure` is the big common between these two analysis with **ten** highly profitable combinations. 
+
+`Documentary` and `Drama` only had a **single** combination to their names so we can ignore them because we want to investigate movies that have a high chance of getting good reviews and making a good profit. With only one occurance it greatly reduces the chances of being a profitable venture with either of those genres. 
+
+We did see `Animation` and `Comedy` pop up in the top 10 profitable category with **four** aand **five** combinations.
+
+We also saw `Action` and `Sci-fi` in the race with **seven** and **four** combinations respectively.
+
+We can also see that `Family` and `Fantasy` are up there but our previous analysis showed us that the chances of these movies getting high viewer ratings is low so we are not going to focus on them.
+
+This tells us that we should keep an eye out for the following three categories going forward:
+
+1. `Adventure`
+2. `Action`
+3. `Comedy`
+4. `Animation`
+5. `Sci-fi`
+
+
+### genre vs ratings vs profits analysis
+
+We will focus on the 5 genres that we have shortlisted and their combinations.
+
+image.png
+
+Recapping the 5 genres we shortlisted:
+
+1. `Adventure`
+2. `Action`
+3. `Comedy`
+4. `Animation`
+5. `Sci-fi`
+
+We can clearly see some good and bad spikes in the graph:
+
+- `Adventure` is the common genre in all the 5 peaks of movie ratings with the grouping of `Fantasy` in 3 of them.
+
+- In the 8 groupings with 7 or below average ratings, `Adventure` was a part of 4 of them which shows that `Adventure` genre on it's own is a mixed fortune. It is the pairings with `Adventure` that play a big part.
+
+- 4 out of the 7 groupings of `Action` ended up having an average rating of 7 or less. That shows that it is difficult to generate good customer reviews with this genre. In all the 3 groupings that were above 7 were with `Adventure`. We will continue to explore `Action` but in context of pairing with `Adventure`
+
+- `Comedy` faired better with 3 out of 5 combinations racking up average ratings higher than 7 in the most profitable combinations. Out of these 3, 2 were pairings with `Adventure`
+
+- `Animation` had an average performance with 2 out of 4 combinations getting above 7 ratings. Both of these were paired with `Comedy`. We will be looking at `Animation` in combination with `Comedy` pairings for better insights going forward.
+
+- `Sci-Fi` did really good on its own or when paired wiht with `Adventure` and `Drama`. Pairings with `Action` proved to bring down the ratings. We will continue to explore `Sci-Fi` as a possible pairing with `Adventure` or other genres.
+
+
+In light of these insights, we will shift our focus to looking at pairings with `Adventure` and the following genres:
+
+1. `Action`
+2. `Comedy`
+3. `Animation` 
+4. `Sci-Fi`
+
+
+We will take a look at foreign success and movie budgets next to understand what pairings will prove to be the best with `Adventure`.
+
+### Should the movie be launched internationally?
+
+Similar to the last analysis, we will cut down our shortlist to the 5 genres and minimumm average rating of 7 to pick out the top genre combinations. Then we will evaluate how did these genres perform in the foreign and domestic markets.
+
+image.png
+
+This chart makes it clear that the launch of a movie in foreign merkets is essential to have high profitability and success. In most of the genre combinations, the foreign profits are eiher dominating the total profits or contributing as much as the domestic profits. 
+
+Lets see how have our shortlisted genres done in domestic and foreign markets:
+
+The `Adventure` genre has consistently brought in almost $200 million profits in the US market.
+
+The most repeated combination with `Adventure` has been of `Action` with 3 out of the 5 shortlisted.
+
+The next most repeated one has been with `Comedy` with 2 combinations.
+
+`Sci-Fi` and `Animation` both had a single combination each with `Adventure`.
+
+The combination with `Sci-Fi` was the highest rated amongst all 5 aand a close second for net profit with almost $550 million.
+
+Interestingly, the combination of `Action, Adventure, Comedy` didn't end up being the most profitable or the best reviewed amongst the 5 but those are the 3 genres which are showing up to be the most consistent in performance. But this combination did bring in the highest domestic profit amongst the shortlisted genres. Therefore, if he client chooses to not pursue an international launch, this cmbination would be the most reliable to bring in high domestic profits.
+
+To finally choose which combination will work best, we still need to look at the production budget required for these genres. This will provide the client insight on which genre to choose depending on the money available to the client.
+
+### What should the budget target be for the movie?
+
+image.png
+
+The highest production budget with the lowest profits was the combination of `Adventure, Animation, Comedy` which rules it out of selection.
+
+The lowest production budget was for `Adventure, Drama, Sci-Fi` and then `Action, Adventure, Comedy` with only a small difference between the two. Both of these genres have similar net profits therefore the financial impacts will also be similar.
+
+This gives the client options on which genre combination to choose from for pursuing the most financially sound option.
+
+## Conclusion and Recommendation
+
+Our analysis gave us the following insights for the questions posed:
+
+1. Which genres bring in the highest ratings and profits?
+    - `Adventure` genre is one of the most common genres to produce high customer reviews and good profit margins but it has to be paired with the correct genres to make this possible.
+<br>
+
+
+2. Should the movie be launched internationally?
+    - The shortlisted genres were focused arouond `Adventure` because statistically, `Adventure` was the most common genre doing well with reviewers and with profit margins.
+    - Between domestic and foreign markets, foreign markets proved to be the more lucrative ones. They contributed significantly to the net profits
+ <br>
+ 
+ 
+3. What should the budget target be for the movie?
+    - The shortlisted genres were focused arouond `Adventure` for this analysis.
+    - Most of the shortlisted genres had production budgets of $200 million or less except for one exception which was chosen to be ignored.
+
+
+The recommendations from the analysis are as follows:
+
+The client has 3 options of genres to choose from for **maximum profitability** and **positive viewer reponse**. The pros and cons are listed below with the recommendations:
+
+1. `Action, Adventure, Family` : 
+    - Net Profit: ~$600 million
+        - This genre combinatiion has the most net profits amongst the three final candidates.
+<br>
+
+    - Average Rating: ~7.0
+        - `Family` genre combinations are not poopular in having high average ratings so the chances of getting a **positive viewer response** with the genre combination are low.
+<br>  
+
+    - Production Budget: ~$175 million
+        - This genre combination has the highest production budget amongst the final candidates.    
+
+<br>
+
+
+2. `Adventure, Drama, Sci-Fi` :
+    - Net Profit: ~$550 million
+        - This is the second highest net profit amongst the final options
+        
+        - `Drama` combinations can garner a lot of **positive viewer responses** but they were a rare occurance in the top 20 most profitable genre combinations therefore are not a guarantee to be highly **profitable**.
+
+    - Average Rating: ~8.0
+        - This is the highest average rating amongst the final candidates and well above the average of 6.5 of the dataset and 7.0 of IMDB
+        - `Drama` genre combinations are the most popular amongst viewers. They were the most common in the high average rating analysis.
+    
+    - Production Budget: ~$100 million
+        - This is the lowest production budget amongst the final candidates
+
+<br>
+
+
+3. `Action, Adventure, Comedy` : 
+    - Net Profit: ~$525 million
+    
+        - This is the least amount of net profit amongst the final three options. 
+        - All of the three genres in this combination were a consistent occurance in the top 20 most profitable genre combinations.
+    - Average Rating: ~7.3
+        - All of the three genres were the most consistent genres to show up for high average ratings and high proftiability which means that they can garner a lot of **positive viewer response** and be highly **profitable**
+    - Production Budget: ~$150 million
+        - This is the second highest production budget from the final 3 options.
+
+**Impactful market entry** is a mix of good reviews, high profits and global exposure. Reviewws and profits have already been discussed. Looking at the scope of international market launch, depending on the client's strategy, the options will be limited. The financial performance in domestic and foreign markets of the 3 options is given below:
+
+    1. `Action, Adventure, Family` : 
+        - Barely break even. Most of the profits are from international markets
+        - Cannot pursue
+
+    2. `Adventure, Drama, Sci-Fi` :
+        - Domestic profit of ~$200 million.
+        - Foreign profit of ~$350 million.
+
+    3. `Action, Adventure, Comedy` :
+        - Domestic profit of ~$200 million.
+        - Foreign profit of ~$325 million.
+        
+        
+This shows that for an impactful market entry, international markets can not be ignored and have to be catered to.
+
+With all of that in mind, the final recommendation would be to pursue a film in the genre commbination of `Action, Adventure, Comedy`. 
+
+This is because it will meet all 3 of the client's goals. These 3 genres are most common occurances in the high customer reviews list and the most profitable genres list. This increases the statistical chances of the movie having high **profits** and high **positive viewer responses**.
+
+
+Alongside the recommendation would be to launch this movie in the international market for greater exposure and profits. 
+
+Also, the average production budget for this genre is consideraably lower and can be recouped just through the domestic revenue streams which is a guarantee of success.
+
+Ensuring that the movie has high chances of good reviews and has a wide exposure across different markets will ensure an **impactful market entry**.
