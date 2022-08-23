@@ -1,8 +1,8 @@
-# Microsoft Studio Project Overview
+# Microsoft Studio Project
+
 
 # Final Project Submission
 
-Please fill out:
 * **Student name:** Shayan Abdul Karim Khan
 * **Student pace:** Self Paced
 * **Scheduled project review date/time:** 
@@ -11,50 +11,29 @@ Please fill out:
 
 ## Problem Overview
 
-### Venture Opportunity:
-A lot of companies are producing original video content generating huge revenues, including box office movies. In the post-pandemic world, people have filled theaters and cinema halls allowing top movies to rack up millions in box office revenues.
-
-### Client Insight:
+A lot of companies are producing original video content generating huge revenues, including box office movies. 
 Microsoft has decided to venture into the world of movie production with a new movie studio. In order to make the movie studio a success, Microsoft needs to understand what kind of movies to produce. 
 
-### Client Goals:
-This notebook focuses on three client goals:
+Microsoft has 3 goals that this project focuses on:
 1. Positive viewer response
 2. Impactful market entry
 3. Profitable 
 
 ### Business Questions
-This notebook will focus on three business questions to help achieve the client's goals. There are **three** business questions that this notebook will recommend answers to:
+This notebook focused on three business questions
 
 1. Which genres to focus on?
-    - The popular genres will identify what type of movie will receive positive viewer responses
-    
-*It is important to understand the customer base and how different factors influence their behavior. Any product should primmarily be focused on providing the customer with whata they need. This guarantees success in the long run and develops customer loyalty. Customer satisfaction is directly correlated with profits and better reviews which will allow long-term success.*
-<br>
-
 
 2. Should the movie be launched internationally?
-    - The international launch of the movie will help the client in the future with regards to an impactful market entry. If the movie needs to be launched internationally, it will need to have a cast, crew, story, advertising and marketing plans made accordingly. Whereas a only a US specific production would require different plans.
-<br>
-
 
 3. What should be the expected budget/initial investment?
-    - The financial aspects will help identify how successful the business side will be. It is important to remember that a movie can be very popular but if it's not adequately profitable, it will be difficult for the movie studio to continue operations.
-<br>
 
 
-### Value Proposition:
-This notebook will look at multiple sources of data to understand what will allow Microsoft to generate the most promising content and set it up for long-term success. The strategy described below will be used to generate actionable insight to answer the **Business Questions** based on two main criterion:
-<br>
-1. *Movie Reviews*
-2. *Movie Profits*
+
 
 ## Strategy
-To answer the complex question of the secret ingredients of a successful movie, there are a myriad of aspects to consider. The different aspects analyzed in this notebook will be evaluated based on the two KPIs listed above; Profits and reviews. 
 
-Good **Movie Reviews** are important indicators of the quality of a movie nonetheless they can not solely justify an investment opportunity. Therefore **Movie Profits** will be used as an indicator of high potential investment opportunities. The two KPIs coupled together can give the client a more thorough lay of the land. 
-
-These KPIs will be used to answer the three main business questions in the following manner:
+These KPIs were used to answer the three main business questions in the following manner:
 
 1. Which genres to focus on?
     - genre vs average reviews analysis
@@ -74,7 +53,7 @@ These KPIs will be used to answer the three main business questions in the follo
 
 ## Data Sources
 
-To solve the problem, 5 data sources have been gathered. These data sources will be investigated to identify which data will be helpful in the analysis. The data sources are listed below:
+5 data sources were initially explred: 
 
 - **[Box Office Mojo](https://www.boxofficemojo.com/)**
 
@@ -86,272 +65,65 @@ To solve the problem, 5 data sources have been gathered. These data sources will
 
 - **[TheMovieDB](https://www.themoviedb.org/)**
 
-The content and relevance of the data available is dealt with in detail in the **Data Understanding** Section.
 
 ## Data Understanding
 
 ### Box Office Mojo Dataset
-The **Box Office Mojo** dataset is stored in the `zippedData` folder. 
 
-The file is called `bom.movie_gross.csv.gz`.
-
-There are **five** columns in this dataset:
-
-- `title` : This is the movie title. It is an important column because it shows which movie the record is for. This will be valuable in comparing/merging data to give more context to the analysis.
-<br>
-
-- `studio` : This gives an outlook on the competitors in the market. This won't be valuabale in answering any of the three business questions.
-<br>
-
-- `domestic_gross` : This data is particularly important because it provides the financial overview within the US market. Since there is no currency sign associated, we will assume `$` but more on that in the **Data Prepartion** section.
-<br>
-
-- `foreign_gross` : This is similar to `domestic gross` and equally valuable. It provides insights on foreign performance of a movie.
-<br>
-
-- `year` : This is the year that the movie was released. It is important to keep the year in mind so that the analysis isn't skewed. We will later evaluate which timelines to focus on for the analysis.
-
-There are `3387` records in total in this dataset which is a good size for our analysis. 
-
-**Summary:** 
-
-The **Box Office Mojo** data will be valuable to conduct financial analysis but we have another financial informatiion dataset that we'll look at next. We will compare these two datasets to understand what information to carry into our analysis from these.
+The Box Office Mojo dataset mainly had financial data about gross foreign and domestic revenue with `3387` records. After comparison with **The Numbers** dataset it was decided to choose **The Numbers** dataset because it had mrooe records.
 
 
 ### The Numbers Dataset
-This dataset is stored in the `zippedData` folder. 
 
-The file is called `tn.movie_budgets.csv.gz`.
+This dataset contains the same financial information as the **Box Office Mojo** dataset but with more records, totalling `5782`. It also has the additional infoormation obout productin budget therefore this dataset was chosen for financial analysis.
 
-There are **six** columns in this dataset with a total of `5782` records with no missing values.
-
-It is difficult to guage what the `id` column is doing in this dataset. We should be able to drop this column since it doesn't signify anything unique. This will be done in the **Data Preparation** section.
-
-A brief overview of the columns of interest in the `tn_df` dataframe is as follows:
-
-
-- `release_date` : This is the release date of the movie and will be valuable in determining if we wwant to limit the timeline of the dataset we use.
-<br>
-
-- `movie` : This is the movie name which shows which movie the record is for.
-<br>
-
-- `production_budget` : This column is important in understanding the initial investments that have to be made by the client. This will also allow us to calculate the net profits.
-<br>
-
-- `domestic-gross` : Similar to `bom_df`, this column provides insight into the revenue generated in the US market by the movie.
-<br>
-
-- `worldwide-gross` : This is slightly different than the `foreign_gross` column of `bom_df`. It was found through exploration and comparison with the **Box Office Mojo** dataset that thiis column is the sum of domestic gross and foreign gross. 
-
-An important thing to note is that `tn_df` has `5782` records while `bom_df` has `3378`. 
-
-**Summary:** 
-
-`tn_df` has similar data bins (i.e. columns) as `bom_df` but more records. Considering that `tn_df` has more records and a complete dataset, therefore it would be better to use this dataset for analysis.
-
-`tn_df` will be the main dataset we will be using to conduct financial analysis.
 
 ### Rotten Tomatoes Dataset
 There are 2 datasets from Rotten Tomatoes that we are going to explore and understand their utility for our analysis.
 
-- `rt.movie_info.tsv`
-- `rt.reviews.tsv`
-
-Both of these files are stored in the `zippedData` folder.
+- `rt.movie_info.tsv` with `1560` records has basic informaation about movies such as genre, director, writer, etc.
+- `rt.reviews.tsv` with `54432` records has the corresponding user reviews for tmovies.
 
 The two datasets are related through the id column as shown below. Since there are multiple reviews for movies, we see a big discrepancy between the total number of records between the two datasets.
 
-`rtmov_df` has `1560` records
+This dataset was not used because the `IMDB` database has the same information but more records.
 
-`rtrev_df` has `54432` records
-
-![image.png](attachment:image.png)
-
-Since there is no information on the movie name that these records are for, it becomes very difficult to join/compare this data with other datasets. 
-
-Note that the `rating` columns in the two dataframes show different data. The one in `rtmov_df` is to signify what age group the movie was for (eg. R, PG13, etc) whereas the one in `rtrev_df` is the movie review on a scale of 0 to 5.
-
-- `id` : This is the key column in both dataframes. We will be using this column to join the dataframes.
-<br>
-
-- `rtmov_df` `rating` : This column contains information on the age group that the movie was released for. For example R-rated movies have age restrictions. This will be valuable in understanding the demographic of the users.
-<br>
-
-- `rtmov_df` `genre` : This column provides an insight into what genre the movie was. Comparing this column with `rating` and `reviews` will showcase which genres are highly competetive and which ones are low performingor have high standards.
-<br>
-
-- `rtrev_df` `rating`: This column stores the ratings reviewers gave the movie out of 5. This data will be used as the basepoint to compare what type of movies are successful. This column will be renamed to avoid confusion with the `rtmov rating` data.
-
-An important thing to note is that the **Rotten Romatoes** data only has `1560` movie records. This is much smaller than the other two data sources we have looked at. 
-
-Therefore, if we find a dataset with similar information but more records, we will ignore this dataset. 
-
-**Summary:** 
-
-While this data is valuable for analysing genres vs reviews, we need to look at the other datasets with more records before deciding how critical the rotten tomatoes data will be.
 
 ### IMDB Database
-
-The **IMDB** Database is stored in the `zippedData` folder.
-
-The file is called `im.db`.
 
 We have the following Entity Relationship Diagram (ERD) explaining the different tables in the database:
 
 ![movie_data_erd.jpeg](attachment:movie_data_erd.jpeg)
 
-The `persons` table contains the records for the cast and crew of the movies which are not relevant to the business questions that this notebook explores. 
+The `persons` table contains the records for the cast and crew of the movies which are not relevant to the business questions that this notebook explore therefore they were ignored.
 
-Nonetheless, this is something that should be investigated separately. Alongside this data, experts in the field of movie production should be consulted to understand which cast and crew would be ideal for the kind of movie that the client decides to pursue.
-
-Leveraging the **ERD** above, we can skip exploring `writers`, `directors`, `principals` and `known_for` tables because these are information about the cast and crew.
+Leveraging the **ERD** above, we skipped exploring `writers`, `directors`, `principals` and `known_for` tables because these are information about the cast and crew.
 
 The `movie_basics` table give us the principal information about the movies that will be used for joining and relating with other tables. It will be important to use this table in analysis to relate reviews and profits to genres.
-
-It has **six** columns, all with valuable information, with `146144` records which will greatly improve the analysis.
-
-- `movie_id` : This is the primary key of the table. It can be seen in the ERD that it relates to the other tables based on this id.
-<br>
-
-- `primary_title` : This column represents the changed title for different markets. These can be translations if the movie is a foreign production. A lot of movies are released with different names in different regions. This might end up not being a useful column for analysis but further exploration will calrify that.
-<br>
-
-- `original_title` : This column is self-explanatory. It has the original title of the movie in the local language of the region it was prooduced in. This will be important to link to the other datasets and other tables within the database.
-<br>
-
-- `start_year` : This is the year that the movie was launched. This will be important to filter the records for the timeline being evaluated.
-<br>
-
-- `runtime_minutes` : This column contains the data on the total length of the movie. This data does not contribute to the business questions being answered.
-<br>
-
-- `genres` : This column contains the genres of the movie. This will be critical in our analysis to understand which genres should the client focus on.
 
 The `movie_ratings` table will be extremely valuable in analyzing genres vs reviews and generating recommendations for which type of movie should the client pursue.
 
 This is the dataframe storing the average reviews for the movies and the corresponding total number of votes for each movie. 
 
-Nonetheless, it only has `73856` records compared to `movie_basics` `146144` records. Only movies that have reviews data will be used in the analysis.
-
 These reviews can be correlated with the genres of the movies from `movie_basics` using the `movie_id` column. This will give us a good comparison of genres vs reviews.
 
 These can be further analysed with profits for every movie, resulting in a genres vs reviews vs profits comparison.
 
-This dataframe has **three** columns:
-
-- `movie_id` : This is the key that is relating this table to the `movie_basics` table.
-<br>
-
-- `averagerating` : This is the average of all the ratings for a specific movie.
-<br>
-
-- `numvotes` : This is the total number of reviews that a movie received. It will be important to set a baseline of minimum number of votes to use for filtering the data to avoid skewwing results.
-
-
 `movie_akas` is a relatively large dataframe with `331703` records. This is because the `title` column has separate names that movies had in different regions. 
-
-We will use the laanguage column to identify which movies were produced for most of the US population. 
-
-Using **English** as the baseline laanguage will allow the movie to have the greatest reach in doemstic and international markets.
 
 The are `44700` original titles in this dataset but almost all of them are missing region and lanaguage data.
 
 This renders this table invaluable for our analysis since it doesn't have any extra information that will help answer the **Business Questions**
 
-That finishes the exploration of the `im.db` database.
-
-**Summary:** 
-
-- `persons`, `principals`, `known_for`, `directors` and `writers` contain information on cast and crew. These tables will not be used in the analysis because they do not add value to answering the **Business Questions** laid out in the **Problem Overview** section.
-<br>
-
-- `movie_basics` is an important table wih the principal information about the movie. This table is linked to two other important tables and will be critical in the analysis.
-<br>
-
-- `movie_ratings` stores the average ratings and number of votes for movies. This will serve as the main reference for analyses based on reviews.
-<br>
-
-- `movie_akas` contains movie names in different regions. Because of missing values, it doesn't provide us any valuable data to use in our analysis. This table will also be ignored. 
 
 ### The MovieDB Dataset
 
-**The MovieDB** Dataset is stored in the **zippedData** folder.
+Tis dataset will be very useful for analyzing movie reviews vs proftis vs genres. We can directly link this dataset to the IMDB tables using the `original_title` column. We will average out the reviews from this dataset and the IMDB dataset.
 
-The file is called `tmdb.movies.csv`.
-
-There are **ten** columns and `26517` records in this dataset.
-
-- The `Unnamed` column is the index of the records therefore this column can be ignored.
-<br>
-
-- The `genre_ids` column can be ignored since we can grab the genres from other tables which would be more helpful
-<br>
-
-- The `id` column can be dropped because we can use `original_title` as the key to relate to the `im.db` database.
-<br>
-
-
-The columns that we will be carrying into analysis will be the following:
-
-- The `original_language` column can be used to determine which movies will have the greatest reach. Using **English** as a the baseline language, will allow the maximum domestic and international reach.
-<br>
-
-- `original-title` : This is the original title of the movie which we can use to correlate data in other dataframes.
-<br>
-
-- `popularity` : This will be an important data to look at alongside reviews to analyse the response to the movies. While the scale isn't known, we can manipulate the values to create a custom scale to better understand the values.
-<br>
-
-- The `release_date` column can be used to filter records for the timeline that will be used in analsis.
-<br>
-
-- `title` : This will be an important column to keep in case we need to link the `bommovies` dataset using the title column instead of `original_title`.
-<br>
-
-- `vote_average` : This gives us an extra benchmark to use for comparison of reviews to the `imm.db` database
-<br>
-
-- `vote_count` : The number of votes allows us to filter to ensure that wew are not skewing data because of very good or very bad reviews of a only a handful viewers.
-
-**Summmary:** 
-
-The `tmdb_db` dataset will be very useful for analyzing movie reviews vs proftis vs genres. We can directly link this dataset to the `im_db` tables using the `original_title` column.
-
-#### Review
-That was a lot of information. Lets take an overall look at the ERD of all of our datasets and talk about which ones we will be using in our analysis, and how we'll use them.
+Lets take an overall look at the ERD of all of our datasets and talk about which ones we will be using in our analysis, and how we'll use them.
 In the diagram below, yellow is for the **IMDB** database. Everything else is labelled.
 
 ![Complete%20ERD.png](attachment:Complete%20ERD.png)
-
-`im.db` database is the most valuable database which has all the info for the movies except for revenues.
-<br>
-
-- `persons`, `principals`, `known_for`, `directors`, `writers`, and `movie_akas` datasets will be ignored because they are not relevant to the **Business Questions** mentioned earlier.
-<br>
-
-- `movie_basics` will be the main dataset used for the principal information for the movies, i.e genre, title, etc.
-<br>
-
-- `movie_ratings` will be used for tallying up the reviews and correlating genre with review and financial performance.
-<br>
-
-`Box Office Mojo` and `The Numbers` datasets are next most valuable ones because they contain information on financial performance of the movies.
-
-- `Box Office Mojo` and `The Numbers` data contains the same financial information. 
-<br>
-
-- Since `The Numbers` dataset has more records, the `Box Office Mojo` dataset will be ignored. `The Number` dataset will be used to calculate the profits for financial analysis.
-<br>
-
-- The genre, reviews, and financial performance data will be joined with the imdb dataset. The joined dataset will be the main financial analysis daataframe that this notebook will use. 
-<br>
-
-- The timeline available in `The Numbers` dataset will be one of the limiting factors for analysis.
-
-`The MovieDB` datasets will serve as an additional resource to compare with `movie_ratings`. The dataset wwill be joined with the `im.db` database and the reviews will be averaged between the two.
-
-The `Rotten Tomatoes` datasets will be ignored because they don't provide any additional value for analysing customer reviews. `im.db` provides movie-specific data with more records.
 
 
 ## Data Interpretation and Visualizations
@@ -480,23 +252,6 @@ This gives the client options on which genre combination to choose from for purs
 
 ## Conclusion and Recommendation
 
-Our analysis gave us the following insights for the questions posed:
-
-1. Which genres bring in the highest ratings and profits?
-    - `Adventure` genre is one of the most common genres to produce high customer reviews and good profit margins but it has to be paired with the correct genres to make this possible.
-<br>
-
-
-2. Should the movie be launched internationally?
-    - The shortlisted genres were focused arouond `Adventure` because statistically, `Adventure` was the most common genre doing well with reviewers and with profit margins.
-    - Between domestic and foreign markets, foreign markets proved to be the more lucrative ones. They contributed significantly to the net profits
- <br>
- 
- 
-3. What should the budget target be for the movie?
-    - The shortlisted genres were focused arouond `Adventure` for this analysis.
-    - Most of the shortlisted genres had production budgets of $200 million or less except for one exception which was chosen to be ignored.
-
 
 The recommendations from the analysis are as follows:
 
@@ -564,9 +319,3 @@ With all of that in mind, the final recommendation would be to pursue a film in 
 
 This is because it will meet all 3 of the client's goals. These 3 genres are most common occurances in the high customer reviews list and the most profitable genres list. This increases the statistical chances of the movie having high **profits** and high **positive viewer responses**.
 
-
-Alongside the recommendation would be to launch this movie in the international market for greater exposure and profits. 
-
-Also, the average production budget for this genre is consideraably lower and can be recouped just through the domestic revenue streams which is a guarantee of success.
-
-Ensuring that the movie has high chances of good reviews and has a wide exposure across different markets will ensure an **impactful market entry**.
