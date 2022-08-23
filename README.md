@@ -181,7 +181,7 @@ This tells us that we should keep an eye out for the following three categories 
 
 We will focus on the 5 genres that we have shortlisted and their combinations.
 
-<img src = 'genre_vs_reviews_vs_proftis.png'>
+<img src = 'Images/genre_vs_reviews_vs_proftis.png'>
 
 Recapping the 5 genres we shortlisted:
 
@@ -220,7 +220,7 @@ We will take a look at foreign success and movie budgets next to understand what
 
 Similar to the last analysis, we will cut down our shortlist to the 5 genres and minimumm average rating of 7 to pick out the top genre combinations. Then we will evaluate how did these genres perform in the foreign and domestic markets.
 
-<img src = 'domestic_vs_foreignprofits.png'>
+<img src = 'Images/domestic_vs_foreignprofits.png'>
 
 This chart makes it clear that the launch of a movie in foreign merkets is essential to have high profitability and success. In most of the genre combinations, the foreign profits are eiher dominating the total profits or contributing as much as the domestic profits. 
 
@@ -242,7 +242,7 @@ To finally choose which combination will work best, we still need to look at the
 
 ### What should the budget target be for the movie?
 
-<img src = 'prooduction_budget_vs_genres.png'>
+<img src = 'Images/prooduction_budget_vs_genres.png'>
 
 The highest production budget with the lowest profits was the combination of `Adventure, Animation, Comedy` which rules it out of selection.
 
