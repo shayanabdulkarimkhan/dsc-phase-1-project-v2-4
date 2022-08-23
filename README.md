@@ -93,7 +93,7 @@ This dataset was not used because the `IMDB` database has the same information b
 
 We have the following Entity Relationship Diagram (ERD) explaining the different tables in the database:
 
-![movie_data_erd.jpeg](attachment:movie_data_erd.jpeg)
+<img src = 'Images/movie_data_erd.jpeg'>
 
 The `persons` table contains the records for the cast and crew of the movies which are not relevant to the business questions that this notebook explore therefore they were ignored.
 
@@ -123,7 +123,7 @@ Tis dataset will be very useful for analyzing movie reviews vs proftis vs genres
 Lets take an overall look at the ERD of all of our datasets and talk about which ones we will be using in our analysis, and how we'll use them.
 In the diagram below, yellow is for the **IMDB** database. Everything else is labelled.
 
-![Complete%20ERD.png](attachment:Complete%20ERD.png)
+<img src = 'Images/Complete_ERD.png'>
 
 
 ## Data Interpretation and Visualizations
@@ -132,7 +132,7 @@ In the diagram below, yellow is for the **IMDB** database. Everything else is la
 
 #### genre vs ratings analysis:
 
-image.png
+<img src = 'Images/genre-combinations-high-reviews.png'>
 
 We can easilly decypher that the top 4 most popular genre combinations that are rated above average are (Recall that **NA** means that there wasn't a combination for thata column:
 
@@ -145,7 +145,7 @@ Nonetheless, purely good reviews can't be only reference of producing a successf
 
 ### genre vs profits analysis
 
-image.png
+<img src = 'Images/genre_vs_proftis.png'>
 
 The figure above shows the Top 20 profitable genre combinations.
 
@@ -181,7 +181,7 @@ This tells us that we should keep an eye out for the following three categories 
 
 We will focus on the 5 genres that we have shortlisted and their combinations.
 
-image.png
+<img src = 'genre_vs_reviews_vs_proftis.png'>
 
 Recapping the 5 genres we shortlisted:
 
@@ -220,7 +220,7 @@ We will take a look at foreign success and movie budgets next to understand what
 
 Similar to the last analysis, we will cut down our shortlist to the 5 genres and minimumm average rating of 7 to pick out the top genre combinations. Then we will evaluate how did these genres perform in the foreign and domestic markets.
 
-image.png
+<img src = 'domestic_vs_foreignprofits.png'>
 
 This chart makes it clear that the launch of a movie in foreign merkets is essential to have high profitability and success. In most of the genre combinations, the foreign profits are eiher dominating the total profits or contributing as much as the domestic profits. 
 
@@ -242,7 +242,7 @@ To finally choose which combination will work best, we still need to look at the
 
 ### What should the budget target be for the movie?
 
-image.png
+<img src = 'prooduction_budget_vs_genres.png'>
 
 The highest production budget with the lowest profits was the combination of `Adventure, Animation, Comedy` which rules it out of selection.
 
