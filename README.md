@@ -253,44 +253,11 @@ This gives the client options on which genre combination to choose from for purs
 ## Conclusion and Recommendation
 
 
-The recommendations from the analysis are as follows:
-
-The client has 3 options of genres to choose from for **maximum profitability** and **positive viewer reponse**. The pros and cons are listed below with the recommendations:
-
-1. `Action, Adventure, Family` : 
-    - Net Profit: ~$600 million
-        - This genre combinatiion has the most net profits amongst the three final candidates.
-<br>
-
-    - Average Rating: ~7.0
-        - `Family` genre combinations are not poopular in having high average ratings so the chances of getting a **positive viewer response** with the genre combination are low.
-<br>  
-
-    - Production Budget: ~$175 million
-        - This genre combination has the highest production budget amongst the final candidates.    
-
-<br>
+The recommendations from the analysis is the following:
 
 
-2. `Adventure, Drama, Sci-Fi` :
-    - Net Profit: ~$550 million
-        - This is the second highest net profit amongst the final options
-        
-        - `Drama` combinations can garner a lot of **positive viewer responses** but they were a rare occurance in the top 20 most profitable genre combinations therefore are not a guarantee to be highly **profitable**.
-
-    - Average Rating: ~8.0
-        - This is the highest average rating amongst the final candidates and well above the average of 6.5 of the dataset and 7.0 of IMDB
-        - `Drama` genre combinations are the most popular amongst viewers. They were the most common in the high average rating analysis.
-    
-    - Production Budget: ~$100 million
-        - This is the lowest production budget amongst the final candidates
-
-<br>
-
-
-3. `Action, Adventure, Comedy` : 
+`Action, Adventure, Comedy` : 
     - Net Profit: ~$525 million
-    
         - This is the least amount of net profit amongst the final three options. 
         - All of the three genres in this combination were a consistent occurance in the top 20 most profitable genre combinations.
     - Average Rating: ~7.3
@@ -299,18 +266,8 @@ The client has 3 options of genres to choose from for **maximum profitability** 
         - This is the second highest production budget from the final 3 options.
 
 **Impactful market entry** is a mix of good reviews, high profits and global exposure. Reviewws and profits have already been discussed. Looking at the scope of international market launch, depending on the client's strategy, the options will be limited. The financial performance in domestic and foreign markets of the 3 options is given below:
-
-    1. `Action, Adventure, Family` : 
-        - Barely break even. Most of the profits are from international markets
-        - Cannot pursue
-
-    2. `Adventure, Drama, Sci-Fi` :
-        - Domestic profit of ~$200 million.
-        - Foreign profit of ~$350 million.
-
-    3. `Action, Adventure, Comedy` :
-        - Domestic profit of ~$200 million.
-        - Foreign profit of ~$325 million.
+     - Domestic profit of ~$200 million.
+     - Foreign profit of ~$325 million.
         
         
 This shows that for an impactful market entry, international markets can not be ignored and have to be catered to.
@@ -318,4 +275,9 @@ This shows that for an impactful market entry, international markets can not be 
 With all of that in mind, the final recommendation would be to pursue a film in the genre commbination of `Action, Adventure, Comedy`. 
 
 This is because it will meet all 3 of the client's goals. These 3 genres are most common occurances in the high customer reviews list and the most profitable genres list. This increases the statistical chances of the movie having high **profits** and high **positive viewer responses**.
+
+
+## Links:
+1. Click [here][http://localhost:8888/notebooks/Microsoft%20Movie%20Studio%20Project.ipynb] to see the full analysis: 
+2. Click [here][http://localhost:8888/files/Microsoft_Studios_Project.pdf] to see the overview presentation.
 
