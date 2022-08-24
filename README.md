@@ -33,7 +33,7 @@ This notebook focused on three business questions
 
 ## Strategy
 
-These KPIs were used to answer the three main business questions in the following manner:
+Movie Reviews and Movie Profits were used as KPIs to answer the three main business questions in the following manner:
 
 1. Which genres to focus on?
     - genre vs average reviews analysis
