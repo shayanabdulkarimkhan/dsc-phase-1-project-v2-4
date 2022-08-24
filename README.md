@@ -278,6 +278,6 @@ This is because it will meet all 3 of the client's goals. These 3 genres are mos
 
 
 ## Links:
-1. Click [here][http://localhost:8888/notebooks/Microsoft%20Movie%20Studio%20Project.ipynb] to see the full analysis: 
-2. Click [here][http://localhost:8888/files/Microsoft_Studios_Project.pdf] to see the overview presentation.
+1. Click [here](http://localhost:8888/notebooks/Microsoft%20Movie%20Studio%20Project.ipynb) to see the full analysis: 
+2. Click [here](http://localhost:8888/files/Microsoft_Studios_Project.pdf) to see the overview presentation.
 
