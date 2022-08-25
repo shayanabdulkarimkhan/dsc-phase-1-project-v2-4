@@ -5,7 +5,7 @@
 
 * **Student name:** Shayan Abdul Karim Khan
 * **Student pace:** Self Paced
-* **Scheduled project review date/time:** 
+* **Scheduled project review date/time:**  Friday Aug 26th 2022
 * **Instructor name:** Abhineet Kulkarni
 * **Blog post URL:** 
 
@@ -16,7 +16,7 @@ Microsoft has decided to venture into the world of movie production with a new m
 
 Microsoft has 3 goals that this project focuses on:
 1. Positive viewer response
-2. Impactful market entry
+2. Domestic vs Foreign Launch
 3. Profitable 
 
 ### Business Questions
@@ -265,13 +265,23 @@ The recommendations from the analysis is the following:
     - Production Budget: ~$150 million
         - This is the second highest production budget from the final 3 options.
 
-**Impactful market entry** is a mix of good reviews, high profits and global exposure. Reviewws and profits have already been discussed. Looking at the scope of international market launch, depending on the client's strategy, the options will be limited. The financial performance in domestic and foreign markets of the 3 options is given below:
-     - Domestic profit of ~$200 million.
-     - Foreign profit of ~$325 million.
-        
-        
-This shows that for an impactful market entry, international markets can not be ignored and have to be catered to.
+**Domestic vs Foreign Launch** The financial performance in domestic and foreign markets of the 3 options is given below:
 
+    1. `Action, Adventure, Family` : 
+        - Barely break even. Most of the profits are from international markets
+        - Cannot pursue
+
+    2. `Adventure, Drama, Sci-Fi` :
+        - Domestic profit of ~$200 million.
+        - Foreign profit of ~$350 million.
+
+    3. `Action, Adventure, Comedy` :
+        - Domestic profit of ~$200 million.
+        - Foreign profit of ~$325 million.
+        
+        
+This shows that for a profitable success, international markets can not be ignored and have to be catered t
+        
 With all of that in mind, the final recommendation would be to pursue a film in the genre commbination of `Action, Adventure, Comedy`. 
 
 This is because it will meet all 3 of the client's goals. These 3 genres are most common occurances in the high customer reviews list and the most profitable genres list. This increases the statistical chances of the movie having high **profits** and high **positive viewer responses**.
